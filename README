@@ -1,3 +1,19 @@
+GOOD LUCK CAMPERS. 
+This is a hacked up HighPoint RocketRAID 640 driver for Linux 3.7+, originally from:
+
+RR64x-Linux-Src-v1.1-120528-1712.tar.gz 
+md5sum: 841599e864d42842b7767d426e19ac19
+
+Credits:
+http://rocketraid-linux-driver.hammade.de/ !!!!!!!!
+https://help.ubuntu.com/community/RocketRaid
+
+Begin regular data dump,... mark:
+
+====
+
+
+
 RocketRAID 64x SATA Controller Linux Open Source Driver
 Copyright (C) 2008-2010 HighPoint Technologies, Inc. All rights reserved.
 

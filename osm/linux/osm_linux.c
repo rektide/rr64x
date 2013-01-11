@@ -449,7 +449,8 @@ static int scsicmd_buf_get(Scsi_Cmnd *cmd, void **pbuf)
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
 	struct scatterlist *sg;
 	sg = scsi_sglist(cmd);
-	*pbuf = kmap_atomic(HPT_SG_PAGE(sg), HPT_KMAP_TYPE) + sg->offset;
+	//*pbuf = kmap_atomic(HPT_SG_PAGE(sg), HPT_KMAP_TYPE) + sg->offset;
+	*pbuf = kmap_atomic(HPT_SG_PAGE(sg)) + sg->offset;
 	buflen = sg->length;
 #else 
 
@@ -479,7 +480,8 @@ static inline void scsicmd_buf_put(struct scsi_cmnd *cmd, void *buf)
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
 	struct scatterlist *sg;
 	sg = scsi_sglist(cmd);
-	kunmap_atomic((char *)buf - sg->offset, HPT_KMAP_TYPE);
+	//kunmap_atomic((char *)buf - sg->offset, HPT_KMAP_TYPE);
+	kunmap_atomic((char *)buf - sg->offset);
 #else 
 
 	if (cmd->use_sg) {
